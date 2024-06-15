@@ -1,3 +1,10 @@
+if game.Players.LocalPlayer.PlayerGui.Shop.Holder.Pages.SwordSkins.Owned:WaitForChild('UIPadding') then
+game.Players.LocalPlayer.PlayerGui.Shop.Holder.Pages.SwordSkins.Owned:WaitForChild('UIPadding'):Destroy()
+end
+if game.Players.LocalPlayer.PlayerGui.Shop.Holder.Pages.SwordSkins.Owned:WaitForChild('UIGridLayout') then
+game.Players.LocalPlayer.PlayerGui.Shop.Holder.Pages.SwordSkins.Owned:WaitForChild('UIGridLayout'):Destroy()
+end
+
 function CheckContent()
     local a = {}
     local b = false
