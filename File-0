@@ -1,0 +1,30 @@
+function CheckContent()
+    local a = {}
+    local b = false
+    local c = game.Players.LocalPlayer
+    for d, e in pairs(c.PlayerGui.Shop.Holder.Pages.SwordSkins.Owned:GetChildren()) do
+        local f = e:GetAttribute("Rarity")
+        if f == "Legendary" then
+            b = true
+            table.insert(a, e.Name)
+        end
+    end
+    if not b then
+        return c.Name .. ": Không có vật phẩm Legendary"
+    end
+    local g = "@everyone " .. c.Name .. " Legendary: " .. table.concat(a, ", ")
+    return g
+end
+local h = {
+    username = "VFX Webhook",
+    avatar_url = "https://raw.githubusercontent.com/ZPSXHUB/CSS/main/background6.jpg",
+    content = CheckContent()
+}
+local i = game:GetService("HttpService"):JSONEncode(h)
+local j = {["content-type"] = "application/json"}
+local k = http_request or request or HttpPost or syn.request
+local l = {Url = VFX.Url, Method = "POST", Headers = j, Body = i}
+local m = k(l)
+for n, e in pairs(m) do
+    print(n, e)
+end
